@@ -1,0 +1,20 @@
+# Frost Canvas — 画布式主题引擎挂载配置
+# 作为 bundle layer 插入 profile 合成树；用户可在设置页（画布）中实时调整。
+- insert:
+    - id: frost-canvas
+      name: frost-canvas
+      config:
+        preset: 'deep-blue'          # 当前配色预设 id（画布可选）
+        custom: false                # 是否启用自定义模式
+        glass: 'frosted'             # 玻璃材质: frosted | translucent | glossy | ice | matte | liquid | rainy
+        background:                  # 渐变底色（自定义模式用）
+          type: 'linear'             # linear | radial | solid
+          angle: 160
+          colors:
+            - '#0d1530'
+            - '#070c1c'
+        accent: '#4da6ff'            # 品牌强调色
+        surfaceAlpha: 0.72           # 面板透明度
+        blurStrength: 20             # 磨砂模糊强度 px
+        glassAlpha: 0.55             # 玻璃材质透明度（画布滑条可调 0.05–0.95）
+        enabled: true
