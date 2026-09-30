@@ -45,8 +45,12 @@ export const Config = z.object({
 })
 
 export function apply(ctx, config) {
-  ctx.settings.register('frost-canvas', Config, {
-    base: config,
-    applies: 'live',
-  })
+  // DSH 0.2 起 settings 服务不再提供 register()（0.1.x 才有）；主题实际由 Client 半区
+  // 的 localStorage 驱动，这里只影响设置页的注册值，故 0.2 上跳过，避免 TypeError 拖挂整个插件。
+  if (ctx.settings && typeof ctx.settings.register === 'function') {
+    ctx.settings.register('frost-canvas', Config, {
+      base: config,
+      applies: 'live',
+    })
+  }
 }
