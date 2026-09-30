@@ -1,6 +1,6 @@
 {
   "name": "frost-canvas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Frost Canvas — 画布式主题引擎：自定义渐变底色 + 玻璃材质 + 预设配色卡（DeepSeek Harness 正式插件）",
   "keywords": [
     "deepseek-harness",
@@ -29,6 +29,7 @@
     "lib",
     "cordis.patch.yml",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "dsh": {
@@ -44,12 +45,12 @@
       "platform": "web"
     }
   },
-  "peerDependencies": {
-    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.0-rc.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "dependencies": {
     "schemastery": "^3.18.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.0-rc.6 || >=0.2.0-rc.1 <0.3.0-0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
