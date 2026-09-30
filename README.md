@@ -2,7 +2,7 @@
 
 > DeepSeek Harness 正式插件：自定义渐变底色 + 多种玻璃材质 + 预设配色卡。
 
-![version](https://img.shields.io/badge/version-0.1.0-5b5bd6) ![license](https://img.shields.io/badge/license-MIT-172033)
+![version](https://img.shields.io/badge/version-0.2.0-5b5bd6) ![license](https://img.shields.io/badge/license-MIT-172033)
 
 Frost Canvas 是一个 DeepSeek Harness 主题插件，把界面变成「画布」：
 
@@ -12,6 +12,16 @@ Frost Canvas 是一个 DeepSeek Harness 主题插件，把界面变成「画布�
 - 🎚️ **玻璃滑条**：透明度 + 模糊强度实时调节
 - 💾 **自定义方案**：保存你的配色方案，随时一键切换
 - 🔄 **持久生效**：正式安装，重启自动加载（localStorage 保存）
+
+## 🆕 0.2.0 · DSH 0.2 桌面端适配
+
+- **覆盖 DSH 0.2 新增的 45 个设计 token**（圆角体系 / 焦点环 / 菜单玻璃 / 设置卡片 / 引导页 / 文档预览 / 文件 diff / shimmer / 状态），全部按当前预设自动推导，9 套配色通吃
+- **菜单玻璃**：0.2 的菜单变成玻璃表面，frost-canvas 的材质第一次作用到菜单
+- **圆角 ↔ 材质联动**：哑光/雨雾更圆润，冰晶/液态更利落
+- **噪点颗粒 + 玻璃边缘高光**：两根新滑条，磨砂玻璃从「糊」变「贵」
+- **跟随系统深浅色**：读 `prefers-color-scheme` 自动切换
+- 兼容修复：补 `dependencies.schemastery`、`settings.register` 加守卫、peer 范围扩到 `>=0.2.0-rc.1 <0.3.0-0`
+
 
 ## 配色预设
 
