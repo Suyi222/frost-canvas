@@ -265,3 +265,15 @@ cordis 记为 "1 entry did not activate"，整个插件被拖挂。
 ## 坑 20 · 云端 MCP 工具的两个坑
 ① `ssh_run` 的命令若以 `cd` 开头，会被包装器当成可执行文件（exit 127 / "failed to execute process"）——用绝对路径；
 ② `file_upload` 有自己的调用超时，大文件会"工具报超时但文件其实传完了"或直接失败——大文件改走 paramiko SFTP 断点续传（记得开 `set_pipelined(True)`，否则速度从 1.2MB/s 掉到 0.4MB/s）。
+
+
+## 坑 21 · 修好的补丁「三处不同步」——本次真实回归
+兼容修复当时做了两处：推到 GitHub 远端 + 改**已安装副本**（profiles\desktop\node_modules\frost-canvas），
+**唯独忘了改工作区源码**（frost-blue-glass\package\lib\index.js）。
+结果后来 `npm pack` 重新打 0.2.0 包时，把**没有守卫的旧版本又打进去**并装回 profile —— 修复被自己覆盖了，
+Host 半区重新报 `ctx.settings.register is not a function`。
+**铁律：工作区源码 / 已安装副本 / 上游仓库 三处必须同步；打包前先 diff 一遍。**
+
+## 坑 22 · pnpm 对 `file:` 依赖会说 "Already up to date"
+tarball 内容变了，但 spec 路径没变时，`dsh plugin add` 可能判定无需重装，
+装了还是旧代码。**必须 `remove` 再 `add`** 才能真正换掉。
